@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QByteArray>
-
+#include <stdint.h>
 #define PREFIX 0x40
 #define PREFIX_BYTES 1
 struct IncomeParcel

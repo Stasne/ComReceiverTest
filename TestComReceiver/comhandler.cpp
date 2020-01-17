@@ -41,7 +41,7 @@ void ComHandler::Start(const QString &port, QSerialPort::BaudRate br )
 	connect(&m_inputPort, SIGNAL(readyRead()), this, SLOT(ReadRawData()));
 	connect(&m_inputPort, SIGNAL(readyRead()), this, SIGNAL(ping()));	// просто индикация живого порта
 }
-void ComHandler::SetMaxIncomeBuffer(quint32 maxSize)
+void ComHandler::SetMaxIncomeBuffer(uint32_t maxSize)
 {
 	if(m_inputPort.isOpen())
 	{
