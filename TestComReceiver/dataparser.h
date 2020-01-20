@@ -3,16 +3,10 @@
 
 #include <QObject>
 #include <QByteArray>
-#include <stdint.h>
+#include <QVector4D>
+
 #define PREFIX 0x40
 #define PREFIX_BYTES 1
-struct IncomeParcel
-{
-	float x;
-	float y;
-	float z;
-	float w;
-};
 
 class DataParser : public QObject
 {
@@ -20,9 +14,9 @@ class DataParser : public QObject
 public:
 	explicit DataParser(QObject *parent = nullptr);
 private:
-	IncomeParcel lastPacket;
+	QVector4D lastVector;
 signals:
-	void DataWasChanged(IncomeParcel);
+	void DataWasChanged(QVector4D);
 
 public slots:
 	void RawDataParser(QByteArray income);

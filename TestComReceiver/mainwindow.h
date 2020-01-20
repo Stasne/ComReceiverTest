@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QVector4D>
 #include "comhandler.h"
 #include "dataparser.h"
 
@@ -29,7 +30,7 @@ private slots:
 	void ConfirmComSettings();
 public slots:
 	void RadioBlink();
-	void UpdateView(IncomeParcel);
+	void UpdateView(QVector4D);
 };
 
 #endif // MAINWINDOW_H

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include <QStringList>
 
 
@@ -21,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(&m_comReceiver, SIGNAL(ping()), this, SLOT(RadioBlink()));
 
 	connect(&m_comReceiver, SIGNAL(NewRawDataReady(QByteArray)), &m_dataParser, SLOT(RawDataParser(QByteArray)));
-	connect(&m_dataParser, SIGNAL(DataWasChanged(IncomeParcel)), this, SLOT(UpdateView(IncomeParcel)));
+	connect(&m_dataParser, SIGNAL(DataWasChanged(QVector4D)), this, SLOT(UpdateView(QVector4D)));
 }
 
 MainWindow::~MainWindow()
@@ -52,11 +53,11 @@ void MainWindow::RadioBlink()
 {
 	ui->radioButton->toggle();
 }
-void MainWindow::UpdateView(IncomeParcel income)
+void MainWindow::UpdateView(QVector4D income)
 {
-	ui->lineEdit_W->setText(QString::number(income.w));
-	ui->lineEdit_X->setText(QString::number(income.x));
-	ui->lineEdit_Y->setText(QString::number(income.y));
-	ui->lineEdit_Z->setText(QString::number(income.z));
+	ui->lineEdit_W->setText(QString::number(income.w()));
+	ui->lineEdit_X->setText(QString::number(income.x()));
+	ui->lineEdit_Y->setText(QString::number(income.y()));
+	ui->lineEdit_Z->setText(QString::number(income.z()));
 }
 

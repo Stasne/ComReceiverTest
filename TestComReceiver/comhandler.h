@@ -17,7 +17,7 @@ public:
 			QSerialPort::StopBits stopBits = QSerialPort::OneStop,
 			QSerialPort::FlowControl flowControl = QSerialPort::NoFlowControl );
 	~ComHandler();
-	void SetMaxIncomeBuffer(uint32_t maxSize);
+	void SetMaxIncomeBuffer(quint32 maxSize);
 private:
 	QByteArray m_rawData;
 	QSerialPort m_inputPort;
